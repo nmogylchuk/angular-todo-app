@@ -1,0 +1,12 @@
+@import './../../../styles.scss';
+
+.todo-list {
+    width: 100%;
+    .todo-list__title {
+        padding: 10px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+        font-size: 2rem;
+      }
+}

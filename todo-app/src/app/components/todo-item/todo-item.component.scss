@@ -1,0 +1,41 @@
+@import "./../../../styles.scss";
+
+.todo-item {
+  width: 100%;
+  .todo-item__item {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    border: 1px solid $blue;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    margin: .5rem auto;
+  }
+
+  .todo-item__checkbox {
+    margin-right: 1rem;
+  }
+
+  .todo-item__done {
+    text-decoration: line-through;
+  }
+
+    .todo-item__date {
+      position: absolute;
+      right: 4rem;
+      font-size: 0.8rem;
+    }
+
+  .todo-item__button {
+    margin: .2rem;
+    background-color: red;
+    border-radius: 50%;
+    &:hover {
+      background-color: darken(red, 10%);
+    }
+  }
+  .todo-item__notodos {
+    text-align: center;
+  }
+}

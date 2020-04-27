@@ -9,7 +9,7 @@ body {
 }
 
 .title {
-  color: $blue;
+  color: $green;
 }
 
 .ul {
@@ -19,10 +19,9 @@ body {
 }
 
 .button {
-  border: 1px solid #000;
   text-transform: uppercase;
   text-align: center;
   cursor: pointer;
-  color: $button-font-color;
   transition: all ease 0.2s;
+  outline: none;
 }

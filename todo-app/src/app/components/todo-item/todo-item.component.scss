@@ -2,40 +2,95 @@
 
 .todo-item {
   width: 100%;
+  padding: 0;
+  margin: 0;
   .todo-item__item {
     width: 70%;
     display: flex;
     justify-content: space-between;
     position: relative;
-    border: 1px solid $blue;
+    border: 1px solid $pink;
     border-radius: 5px;
-    padding: .5rem 1rem;
-    margin: .5rem auto;
+    padding: 1rem;
+    margin: 0.5rem auto;
   }
 
   .todo-item__checkbox {
-    margin-right: 1rem;
+    margin-right: .5rem;
+    opacity: 0;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+  }
+
+  .todo-item__checkmark {
+    margin-right: .5rem;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #777;
+    border-radius: 3px;
+    &::after {
+      line-height: 18px;
+      content: '✔';
+      opacity: 0;
+    } 
+    
+    &.checked {
+      background: $green;
+      color: #fff;
+      text-align: center;
+      &::after {
+        line-height: 18px;
+        content: '✔';
+        opacity: 1;
+      }    
+    }
   }
 
   .todo-item__done {
     text-decoration: line-through;
   }
 
-    .todo-item__date {
-      position: absolute;
-      right: 4rem;
-      font-size: 0.8rem;
-    }
+  .todo-item__date {
+    position: absolute;
+    right: 4rem;
+    font-size: 0.8rem;
+  }
 
   .todo-item__button {
-    margin: .2rem;
-    background-color: red;
-    border-radius: 50%;
+    margin: 0.2rem;
+    color: $pink;
+    font-weight: bold;
+    border: 1px solid $green;
+    display: flex;
+    justify-content: center;
+    text-align: center;
     &:hover {
-      background-color: darken(red, 10%);
+      background-color: #FF0000;
+      border: 1px solid #FF0000;
+      color: #fff;
     }
   }
   .todo-item__notodos {
     text-align: center;
+  }
+}
+
+.filter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+ 
+  .filter__input {
+    width: 50%;
+    border: 1px solid $green;
+    border-radius: 5px;
+    outline: none;
+    height: 30px;
+    padding: 0 .5rem;
+    margin: .5rem auto;
+    font-family: "Baloo Tamma 2", cursive;
   }
 }

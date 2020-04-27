@@ -1,10 +1,16 @@
+<div class="filter">
+    <input class="filter__input" type="text" placeholder="Filter todo by title..." [(ngModel)]="search">
+    <button class="todo-item__button buttom" (click)="sortTodoId()">Sort by id</button>
+    <button class="todo-item__button buttom" (click)="sortTodoTitle()">Sort by title</button>
+</div>
+
 <div *ngIf="!loading">
     <ul class="todo-item" *ngIf="todosService.todos.length; else noTodos">
-        <li class="todo-item__item" *ngFor="let todo of todosService.todos; let i = index">
+        <li class="todo-item__item" *ngFor="let todo of todosService.todos | todosFilter:search; let i = index">
             <span [class.todo-item__done]="todo.completed">
-                <input class="todo-item__checkbox checkbox" type="checkbox" [checked]="todo.completed"
-                    (change)="onChange(todo.id)">
-                <label>
+                <input [id]="todo.id" class="todo-item__checkbox" type="checkbox" [class.checked]="todo.completed" (change)="onChange(todo.id)" >
+                <span class="todo-item__checkmark" [class.checked]="todo.completed" (change)="onChange(todo.id)"></span>
+                <label [for]="todo.id">
                     <strong class="todo-item__number">{{ i + 1 }}</strong>
                     <span class="todo-item__name"> {{ todo.title }} </span>
                 </label>
@@ -18,4 +24,5 @@
         <p class="todo-item__notodos">No Todos now!</p>
     </ng-template>
 </div>
+
 <p *ngIf="loading">Loading...</p>

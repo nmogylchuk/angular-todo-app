@@ -1,14 +1,24 @@
-<div class="filter">
-    <input class="filter__input" type="text" placeholder="Filter todo by title..." [(ngModel)]="search">
-    <button class="todo-item__button buttom" (click)="sortTodoId()">Sort by id</button>
-    <button class="todo-item__button buttom" (click)="sortTodoTitle()">Sort by title</button>
+<div class="action">
+    <div class="action__list">
+        <div class="action__item">
+            <input class="action__input input-filter" type="text" placeholder="Filter todo by title..."
+                [(ngModel)]="search">
+        </div>
+        <div class="action__item">
+            <button class="action__button button" (click)="sortTodoId()">Sort by id</button>
+            <button class="action__button button" (click)="sortTodoTitle()">Sort by title</button>
+        </div>
+    </div>
 </div>
 
+
 <div *ngIf="!loading">
+
     <ul class="todo-item" *ngIf="todosService.todos.length; else noTodos">
         <li class="todo-item__item" *ngFor="let todo of todosService.todos | todosFilter:search; let i = index">
             <span [class.todo-item__done]="todo.completed">
-                <input [id]="todo.id" class="todo-item__checkbox" type="checkbox" [class.checked]="todo.completed" (change)="onChange(todo.id)" >
+                <input [id]="todo.id" class="todo-item__checkbox" type="checkbox" [class.checked]="todo.completed"
+                    (change)="onChange(todo.id)">
                 <span class="todo-item__checkmark" [class.checked]="todo.completed" (change)="onChange(todo.id)"></span>
                 <label [for]="todo.id">
                     <strong class="todo-item__number">{{ i + 1 }}</strong>
@@ -16,7 +26,7 @@
                 </label>
             </span>
             <small class="todo-item__date">{{ todo.date | date:'medium' }}</small>
-            <button class="todo-item__button buttom" (click)="removeTodo(todo.id)">X</button>
+            <button class="todo-item__button button-remove button" (click)="removeTodo(todo.id)">X</button>
         </li>
     </ul>
 
@@ -25,4 +35,6 @@
     </ng-template>
 </div>
 
-<p *ngIf="loading">Loading...</p>
+<div *ngIf="loading" class="loading">
+    <p class="loading__item">Loading...</p>
+</div>

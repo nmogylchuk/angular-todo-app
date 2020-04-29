@@ -20,7 +20,6 @@ export class TodoFormComponent implements OnInit {
       userId: 123,
       title: this.title,
       completed: false,
-      edit: false,
       date: new Date()
     };
     this.todosService.addTodo(todo);

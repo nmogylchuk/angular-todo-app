@@ -8,13 +8,23 @@ import { ITodo } from './../../core/interfaces/todo';
   styleUrls: ['./todo-edit.component.scss']
 })
 export class TodoEditComponent implements OnInit {
-  @Input() todo: ITodo;
+  edited = true;
+  updatedTodo: ITodo;
+  updatedTitle = "";
 
-  constructor(private todosService: TodosService) {}
+  @Input() set todo(todo: ITodo) {
+    this.updatedTitle = todo.title;
+    this.updatedTodo = todo;
+  }
 
   ngOnInit(): void {
   }
 
-  // saveTodo();
-  // cancelTodo();
+  saveTodoTitle() {
+    this.updatedTodo.title = this.updatedTitle;
+    this.edited = false;
+  }
+  cancelTodo() {
+    this.edited = false;
+  }
 }

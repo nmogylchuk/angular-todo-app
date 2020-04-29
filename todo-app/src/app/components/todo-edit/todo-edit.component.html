@@ -1,7 +1,9 @@
-<div class="todo-edit">
-    <input class="todo-edit__input" type="text" value={{todo.title}} placeholder="Edit title"/>
+<div class="todo-edit" *ngIf="edited">
+    <input class="todo-edit__input" type="text" placeholder="Edit title" [(ngModel)]="updatedTitle"/>
     <div>
-        <!-- <button class="todo-edit__button button-save button" (click)="saveTodo()">Save</button> -->
-        <!-- <button class="todo-edit__button button-cancel button" (click)="cancelTodo()">Cancel</button> -->
+        <button class="todo-edit__button button-save button" (click)="saveTodoTitle()">Save</button>
+        <button class="todo-edit__button button-cancel button" (click)="cancelTodo()">Cancel</button>
     </div>
 </div>
+
+<app-todo-item [todo]="updatedTodo" *ngIf="!edited"></app-todo-item>

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TodosService } from './../../core/services/todos.service';
-import { delay } from 'rxjs/operators';
+import { ITodo } from './../../core/interfaces/todo';
 
 @Component({
   selector: 'app-todo-item',
@@ -8,19 +8,13 @@ import { delay } from 'rxjs/operators';
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
-  @Input() search: string;
+  edited = false;
 
-  public loading: boolean = true;
+  @Input() todo: ITodo;
 
   constructor(public todosService: TodosService) {}
 
   ngOnInit() {
-    this.todosService
-      .fetchTodos()
-      .pipe(delay(100))
-      .subscribe(() => {
-        this.loading = false;
-      });
   }
 
   completeTodo(id: number) {
@@ -31,10 +25,8 @@ export class TodoItemComponent implements OnInit {
     this.todosService.removeTodo(id);
   }
 
-  editTodo(id: number) {
-    console.log("Change edit status for todo:" + id)
-    console.log("Change edit status for todo:" + this.todosService.getTodo(id).edit);
-    this.todosService.editTodo(id);
-    console.log("todo changed status to: " + this.todosService.getTodo(id).edit)
+  editTodo() {
+    console.log("dbclick todo: " + this.todo.id)
+    this.edited = this.todo.completed === false;
   }
 }

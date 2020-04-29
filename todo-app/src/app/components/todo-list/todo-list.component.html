@@ -1,6 +1,17 @@
 <div class="todo-list">
     <h1 class="todo-list__title title">My Todo List</h1>
-    <ul>
-        <app-todo-item></app-todo-item>
-    </ul>
+    <div *ngIf="!loading">
+        <ul class="todo-list__list" *ngIf="todosService.todos.length; else noTodos">
+            <li class="todo-list__item" *ngFor="let todo of todosService.todos | todosFilter:search; let i = index">
+                <app-todo-item [todo]="todo"></app-todo-item>
+            </li>
+        </ul>
+        <ng-template #noTodos>
+            <p class="todo-item__notodos">No Todos now!</p>
+        </ng-template>
+    </div>
+
+    <div class="loading" *ngIf="loading">
+        <p class="loading__item">Loading...</p>
+    </div>
 </div>

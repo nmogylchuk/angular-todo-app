@@ -28,11 +28,6 @@ export class TodosService {
     this.todos[idx].completed = !this.todos[idx].completed;
   }
 
-  editTodo(id: number) {
-    const idx = this.todos.findIndex(t => t.id === id);
-    this.todos[idx].edit = !this.todos[idx].edit;
-  }
-
   removeTodo(id: number) {
     this.todos = this.todos.filter(t => t.id !== id);
   }

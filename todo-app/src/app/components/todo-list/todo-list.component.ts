@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TodosService } from './../../core/services/todos.service';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-list',
@@ -6,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
+  @Input() search: string;
 
-  constructor() {}
+  public loading: boolean = true;
 
-  ngOnInit(): void {}
+  constructor(public todosService: TodosService) {}
+
+  ngOnInit() {
+    this.todosService
+      .fetchTodos()
+      .pipe(delay(100))
+      .subscribe(() => {
+        this.loading = false;
+      });
+  }
 }

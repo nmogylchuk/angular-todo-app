@@ -1,12 +1,12 @@
-@import './../../../styles.scss';
+@import "./../../../styles.scss";
 
 .todo-list {
-    width: 100%;
-    .todo-list__title {
-        padding: .5rem;
-        text-transform: uppercase;
-        text-align: center;
-        font-weight: bold;
-        font-size: 2rem;
-      }
+  width: 100%;
+  .todo-list__title {
+    padding: 0.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+  }
 }

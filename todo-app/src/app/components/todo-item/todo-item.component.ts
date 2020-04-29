@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TodosService } from './../../core/services/todos.service';
-import { delay } from "rxjs/operators";
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-item',
@@ -8,36 +8,33 @@ import { delay } from "rxjs/operators";
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
-
-  editMode = false;
+  @Input() search: string;
 
   public loading: boolean = true;
-  public search: string = '';
 
   constructor(public todosService: TodosService) {}
 
   ngOnInit() {
-    this.todosService.fetchTodos()
-    .pipe(delay(100))
-    .subscribe(() => {
-      this.loading = false; 
-    });
+    this.todosService
+      .fetchTodos()
+      .pipe(delay(100))
+      .subscribe(() => {
+        this.loading = false;
+      });
   }
 
-  onChange(id: number) {
-    this.todosService.getTodo(id);
+  completeTodo(id: number) {
+    this.todosService.completeTodo(id);
   }
 
   removeTodo(id: number) {
     this.todosService.removeTodo(id);
   }
 
-  sortTodoId() {
-    this.todosService.sortById();
-  }
-
-
-  sortTodoTitle() {
-    this.todosService.sortByTitle();
+  editTodo(id: number) {
+    console.log("Change edit status for todo:" + id)
+    console.log("Change edit status for todo:" + this.todosService.getTodo(id).edit);
+    this.todosService.editTodo(id);
+    console.log("todo changed status to: " + this.todosService.getTodo(id).edit)
   }
 }

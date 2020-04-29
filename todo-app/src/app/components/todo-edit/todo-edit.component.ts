@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TodosService } from './../../core/services/todos.service';
 import { ITodo } from './../../core/interfaces/todo';
 
@@ -8,14 +8,13 @@ import { ITodo } from './../../core/interfaces/todo';
   styleUrls: ['./todo-edit.component.scss']
 })
 export class TodoEditComponent implements OnInit {
+  @Input() todo: ITodo;
 
-  constructor(private todosService: TodosService) { }
+  constructor(private todosService: TodosService) {}
 
   ngOnInit(): void {
   }
 
-  saveTodo(id: number, title: string) {
-    this.todosService.updateTodoTitle(id, title);
-  }
-
+  // saveTodo();
+  // cancelTodo();
 }

@@ -1,32 +1,43 @@
-@import './../../../styles.scss';
+@import "./../../../styles.scss";
 
 .todo-form {
+  width: 100%;
+  .todo-form__title {
+    padding: 0.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .todo-form__list {
     width: 50%;
     display: flex;
     align-items: center;
-    margin: 1rem auto; 
-    .todo-form__input {
-        flex-basis: 95%;
-        height: 100%;
-        border: 1px solid $green;
-        outline: none;
-        font-size: 1rem;
-        padding: .5rem 1rem;
-        border-radius: 5px;
-        font-family: "Baloo Tamma 2", cursive;
-    }
-    .todo-form__button  { 
-        flex-basis: 5%;
-        font-weight: 600;
-        background: transparent;
-        border: none;
-        margin-left: .2rem;
-    } 
+    margin: 1rem auto;
+  }
+  .todo-form__input {
+    flex-basis: 95%;
+    height: 100%;
+    border: 1px solid $green;
+    outline: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-family: "Baloo Tamma 2", cursive;
+  }
+  .todo-form__button {
+    flex-basis: 5%;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    margin-left: 0.2rem;
+  }
 }
+
 .button-add {
-    font-size: 2.5rem;
-    color: $green;
-    &:hover {
-        color: darken($green, 20%);
-    }
+  font-size: 2.5rem;
+  color: $green;
+  &:hover {
+    color: darken($green, 20%);
+  }
 }

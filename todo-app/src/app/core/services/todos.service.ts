@@ -4,13 +4,6 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { ITodo } from './../interfaces/todo';
 
-// export interface Todo {
-//   id: number;
-//   title: string;
-//   completed: boolean;
-//   date?: any;
-// }
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,26 +20,68 @@ export class TodosService {
 
   getTodo(id: number) {
     const idx = this.todos.findIndex(t => t.id === id);
+    return this.todos[idx];
+  }
+
+  completeTodo(id: number) {
+    const idx = this.todos.findIndex(t => t.id === id);
     this.todos[idx].completed = !this.todos[idx].completed;
+  }
+
+  editTodo(id: number) {
+    const idx = this.todos.findIndex(t => t.id === id);
+    this.todos[idx].edit = !this.todos[idx].edit;
   }
 
   removeTodo(id: number) {
     this.todos = this.todos.filter(t => t.id !== id);
   }
 
-  updateTodoTitle(id: number, title: string) {
-    this.todos.find(t => t.id === id).title = title;
-  }
-
   addTodo(todo: ITodo) {
     this.todos.push(todo);
   }
 
-  sortById() {
-    this.todos.sort((a, b) => a.id - b.id);
+  sortByCompleted() {
+    this.todos.sort((a, b) => {
+      if (a.completed === b.completed) {
+        return 0;
+      }
+
+      if (a.completed) {
+        return -1;
+      }
+
+      if (b.completed) {
+        return 1;
+      }
+    });
+  }
+
+  sortByNotCompleted() {
+    this.todos.sort((b, a) => {
+      if (b.completed === a.completed) {
+        return 0;
+      }
+
+      if (a.completed) {
+        return -1;
+      }
+
+      if (b.completed) {
+        return 1;
+      }
+    });
   }
 
   sortByTitle() {
     this.todos.sort((a, b) => a.title.localeCompare(b.title));
   }
+
+  getNextTodoId() {
+    return this.todos.length + 1;
+  }
+
+  // updateTodoTitle() {
+  //   this.todos.find(t => t.id === id).title = title;
+  // }
 }

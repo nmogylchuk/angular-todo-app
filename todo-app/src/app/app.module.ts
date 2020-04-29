@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './Components/todo-list/todo-list.component';
 import { TodoItemComponent } from './Components/todo-item/todo-item.component';
+import { TodoAppComponent } from './components/todo-app/todo-app.component';
+import { TodoActionComponent } from './components/todo-action/todo-action.component';
 
 // Services
 import { TodosService } from './core/services/todos.service';
@@ -18,6 +20,7 @@ import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
 // Pipe
 import { TodosFilterPipe } from './core/pipes/todos-filter.pipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,9 @@ import { TodosFilterPipe } from './core/pipes/todos-filter.pipe';
     TodoItemComponent,
     TodoFormComponent,
     TodoEditComponent,
-    TodosFilterPipe
+    TodosFilterPipe,
+    TodoAppComponent,
+    TodoActionComponent
   ],
   imports: [
     BrowserModule,

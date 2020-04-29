@@ -1,0 +1,49 @@
+@import "./../../../styles.scss";
+
+.action {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  .action__title {
+    padding: 0.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .action__list {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0.5rem auto;
+  }
+  .action__item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0.2rem;
+  }
+  .action__input {
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 0.5rem;
+    font-family: "Baloo Tamma 2", cursive;
+    font-size: 1rem;
+  }
+  .action__button {
+    width: 10rem;
+    height: 2rem;
+    background-color: $pink-light;
+    color: $green;
+    padding: 0.2rem;
+    margin: 0.2rem;
+    border: 1px solid $green;
+    &:hover {
+      background-color: $green;
+      color: #fff;
+    }
+  }
+}

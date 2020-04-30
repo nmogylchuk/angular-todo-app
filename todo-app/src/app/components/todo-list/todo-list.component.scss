@@ -9,4 +9,31 @@
     font-weight: bold;
     font-size: 2rem;
   }
+  .todo-list__item {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    border: 1px solid $pink;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 0.5rem auto;
+  }
+
+  .todo-list__notodos {
+    text-align: center;
+    padding: .5rem;
+    margin: .5rem auto;
+    color: $green;
+  }
+}
+
+.loading {
+  width: 100%;
+  .loading__item {
+    text-align: center;
+    padding: .5rem;
+    margin: .5rem auto;
+    color: $green;
+  }
 }

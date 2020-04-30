@@ -72,11 +72,12 @@ export class TodosService {
     this.todos.sort((a, b) => a.title.localeCompare(b.title));
   }
 
+  sortById() {
+    this.todos.sort((a, b) => a.id - b.id);
+  }
+
   getNextTodoId() {
     return this.todos.length + 1;
   }
 
-  // updateTodoTitle() {
-  //   this.todos.find(t => t.id === id).title = title;
-  // }
 }

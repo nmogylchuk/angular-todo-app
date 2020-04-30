@@ -1,0 +1,48 @@
+@import "./../../../styles.scss";
+
+.todo-edit {
+  width: 100%;
+  .todo-edit__input {
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-family: "Baloo Tamma 2", cursive;
+  }
+  .todo-edit__item {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .todo-edit__button {
+    width: 100px;
+    height: 24px;
+    border-radius: 5px;
+    margin: 0.2rem;
+    padding: 0.2rem;
+  }
+
+  .button-save {
+    background-color: $pink-light;
+    color: $green;
+    border: 1px solid $green;
+    &:hover {
+      background-color: $green;
+      color: #fff;
+    }
+  }
+
+  .button-cancel {
+    color: $pink;
+    font-weight: bold;
+    border: 1px solid $green;
+    &:hover {
+      background-color: $pink-light;
+      border: 1px solid $green;
+      color: $green;
+    }
+  }
+}

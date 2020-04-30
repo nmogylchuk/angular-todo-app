@@ -24,4 +24,8 @@ export class TodoActionComponent implements OnInit {
   sortTodoTitle() {
     this.todosService.sortByTitle();
   }
+
+  sortTodoId() {
+    this.todosService.sortById();
+  }
 }

@@ -5,37 +5,24 @@
   padding: 0;
   margin: 0;
   .todo-item__item {
-    width: 70%;
     display: flex;
     justify-content: space-between;
-    position: relative;
-    border: 1px solid $pink;
-    border-radius: 5px;
-    padding: 1rem;
-    margin: 0.5rem auto;
   }
-
   .todo-item__checkbox {
-    margin-right: 0.5rem;
-    opacity: 0;
-    position: absolute;
-    width: 24px;
-    height: 24px;
+    display: none;
   }
-
   .todo-item__checkmark {
-    margin-right: 0.5rem;
-    display: inline-block;
+    display: block;
+    margin-right: 1rem;
+    padding: .2rem;
     width: 24px;
     height: 24px;
     border: 1px solid #777;
-    border-radius: 3px;
+    border-radius: 5px;
     &::after {
-      line-height: 18px;
       content: "✔";
       opacity: 0;
     }
-
     &.checked {
       background: $green;
       color: #fff;
@@ -58,36 +45,22 @@
     font-size: 0.8rem;
   }
 
+  .todo-item__button {
+    max-width: 24px;
+    max-height: 24px;
+    border-radius: 5px;
+    margin: .2rem;
+    padding: .2rem .4rem;
+  }
+
   .button-remove {
-    width: 24px;
-    height: 24px;
-    margin: 0.2rem;
     color: $pink;
     font-weight: bold;
     border: 1px solid $green;
-    display: flex;
-    justify-content: center;
-    text-align: center;
     &:hover {
       background-color: $pink-light;
       border: 1px solid $green;
       color: $green;
     }
-  }
-  .todo-item__notodos {
-    text-align: center;
-    padding: .5rem;
-    margin: .5rem auto;
-    color: $green;
-  }
-}
-
-.loading {
-  width: 100%;
-  .loading__item {
-    text-align: center;
-    padding: .5rem;
-    margin: .5rem auto;
-    color: $green;
   }
 }

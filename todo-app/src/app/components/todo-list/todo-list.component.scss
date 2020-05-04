@@ -17,7 +17,16 @@
     background-color: #F8F8F8;
     box-shadow: 1px 5px 10px -5px $green;
   }
-
+  .todo-list__filter {
+    width: 30%;
+    display: block;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 0.5rem;
+    margin: .5rem auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+  }
   .todo-list__notodos {
     text-align: center;
     padding: .5rem;

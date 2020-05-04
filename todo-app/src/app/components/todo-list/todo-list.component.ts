@@ -11,7 +11,7 @@ export class TodoListComponent implements OnInit {
   @Input() search: string;
 
   public loading: boolean = true;
-
+ 
   constructor(public todosService: TodosService) {}
 
   ngOnInit() {

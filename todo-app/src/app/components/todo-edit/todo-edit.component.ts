@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TodosService } from './../../core/services/todos.service';
 import { ITodo } from './../../core/interfaces/todo';
+import { MaterialModule } from './../../core/material/material.module';
 
 @Component({
   selector: 'app-todo-edit',
@@ -10,7 +10,7 @@ import { ITodo } from './../../core/interfaces/todo';
 export class TodoEditComponent implements OnInit {
   edited = true;
   updatedTodo: ITodo;
-  updatedTitle = "";
+  updatedTitle = '';
 
   @Input() set todo(todo: ITodo) {
     this.updatedTitle = todo.title;

@@ -7,7 +7,7 @@ import { TodosService } from './../../core/services/todos.service';
   styleUrls: ['./todo-action.component.scss']
 })
 export class TodoActionComponent implements OnInit {
-  public search: string;
+public search: string;
 
   constructor(public todosService: TodosService) {}
 

@@ -4,8 +4,12 @@
             <input class="todo-edit__input" type="text" placeholder="Edit title" [(ngModel)]="updatedTitle" />
         </div>
         <div class="todo-edit__item">
-            <button class="todo-edit__button button-save button" (click)="saveTodoTitle()">Save</button>
-            <button class="todo-edit__button button-cancel button" (click)="cancelTodo()">Cancel</button>
+            <button class="todo-edit__button button-save button" (click)="saveTodoTitle()">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button class="todo-edit__button button-cancel button" (click)="cancelTodo()">
+                <mat-icon>cancel</mat-icon>
+            </button>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
     <h1 class="todo-list__title title">My Todo List</h1>
     <div *ngIf="!loading">
         <ul class="todo-list__list" *ngIf="todosService.todos.length; else noTodos">
-            <li class="todo-list__item" *ngFor="let todo of todosService.todos | todosFilter:search; let i = index">
+            <li class="todo-list__item" *ngFor="let todo of todosService.todos | todosFilter:search">
                 <app-todo-item [todo]="todo"></app-todo-item>
             </li>
         </ul>

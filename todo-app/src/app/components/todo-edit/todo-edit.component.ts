@@ -24,6 +24,7 @@ export class TodoEditComponent implements OnInit {
     this.updatedTodo.title = this.updatedTitle;
     this.edited = false;
   }
+
   cancelTodo() {
     this.edited = false;
   }

@@ -2,33 +2,35 @@
 
 .todo-item {
   width: 100%;
-  padding: 0;
-  margin: 0;
   .todo-item__item {
     display: flex;
+    text-align: center;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .todo-item__checkbox {
     display: none;
   }
   .todo-item__checkmark {
     display: block;
-    margin-right: 1rem;
-    padding: .2rem;
-    width: 24px;
-    height: 24px;
-    border: 1px solid #777;
+    padding: 0.2rem;
+    margin: 0.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid $green;
     border-radius: 5px;
+    background-color: #fff;
     &::after {
       content: "✔";
+      line-height: 1rem;
       opacity: 0;
     }
     &.checked {
       background: $green;
-      color: #fff;
+      color: $font-color-white;
       text-align: center;
       &::after {
-        line-height: 18px;
+        line-height: 1rem;
         content: "✔";
         opacity: 1;
       }
@@ -39,6 +41,15 @@
     text-decoration: line-through;
   }
 
+  .todo-item__number {
+    color: $green;
+    padding: 0.2rem;
+  }
+
+  .todo-item__name {
+    padding: 0.2rem;
+  }
+
   .todo-item__date {
     position: absolute;
     right: 4rem;
@@ -46,21 +57,18 @@
   }
 
   .todo-item__button {
-    max-width: 24px;
-    max-height: 24px;
-    border-radius: 5px;
-    margin: .2rem;
-    padding: .2rem .4rem;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.2rem;
+    padding: 0.2rem;
   }
 
   .button-remove {
     color: $pink;
-    font-weight: bold;
     border: 1px solid $green;
     &:hover {
-      background-color: $pink-light;
-      border: 1px solid $green;
-      color: $green;
+      background-color: $pink;
+      color: $font-color-white;
     }
   }
 }

@@ -10,7 +10,7 @@
 
         <div class="todo-item__subitem" [class.completed]="todo.completed" (click)="editTodo()" *ngIf="!edited">
             <strong class="todo-item__number">{{ todo.id }}</strong>
-            <span class="todo-item__name" [class.todo-item__done]="todo.completed"> {{ todo.title }} </span>
+            <div class="todo-item__name" [class.todo-item__done]="todo.completed"> {{ todo.title }} </div>
         </div>
 
         <div *ngIf="edited">
@@ -18,6 +18,9 @@
         </div>
 
         <small class="todo-item__date">{{ todo.date | date:'medium' }}</small>
-        <button class="todo-item__button button-remove button" (click)="removeTodo(todo.id)">X</button>
+        <button class="todo-item__button button-remove button" (click)="removeTodo(todo.id)">
+            <mat-icon>delete</mat-icon>
+        </button>
+        
     </div>
 </div>

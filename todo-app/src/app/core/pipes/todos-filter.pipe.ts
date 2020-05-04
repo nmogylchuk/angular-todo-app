@@ -10,10 +10,7 @@ export class TodosFilterPipe implements PipeTransform {
       return todos;
     }
     return todos.filter(todo => {
-      return (
-        todo.title.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !==
-        -1
-      );
+      return todo.title.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1;
     });
   }
 }

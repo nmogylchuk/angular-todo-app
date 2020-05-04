@@ -1,15 +1,22 @@
 <div class="action">
-    <h1 class="action__title title">Action</h1>
     <div class="action__list">
         <div class="action__item">
             <input class="action__input input-filter" type="search" placeholder="Filter todo by title..."
                 [(ngModel)]="search">
         </div>
         <div class="action__item">
-            <button class="action__button button" (click)="sortTodoCompleted()">Sort by Done</button>
-            <button class="action__button button" (click)="sortTodoNotCompleted()">Sort by Not Done</button>
-            <button class="action__button button" (click)="sortTodoTitle()">Sort by title</button>
-            <button class="action__button button" (click)="sortTodoId()">Sort by Id</button>
+            <button class="action__button button" (click)="sortTodoCompleted()">
+                <mat-icon>check_box</mat-icon>
+            </button>
+            <button class="action__button button" (click)="sortTodoNotCompleted()">
+                <mat-icon>check_box_outline_blank</mat-icon>
+            </button>
+            <button class="action__button button" (click)="sortTodoTitle()">
+                <mat-icon>sort_by_alpha</mat-icon>
+            </button>
+            <button class="action__button button" (click)="sortTodoId()">
+                <mat-icon>format_list_numbered</mat-icon>
+            </button>
         </div>
     </div>
 </div>

@@ -1,0 +1,8 @@
+<div class="todo-form">
+    <div class="todo-form__list">
+        <input class="todo-form__input" type="text" placeholder="What needs to be done?" [(ngModel)]="title" />
+        <button class="todo-form__button button-add button" (click)="addTodo()" (keydown.enter)="addTodo()">
+            <mat-icon>add_circle</mat-icon>
+        </button>
+    </div>
+</div>

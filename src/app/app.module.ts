@@ -8,8 +8,8 @@ import { MaterialModule } from './core/material/material.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { TodoListComponent } from './Components/todo-list/todo-list.component';
-import { TodoItemComponent } from './Components/todo-item/todo-item.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoAppComponent } from './components/todo-app/todo-app.component';
 import { TodoActionComponent } from './components/todo-action/todo-action.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';

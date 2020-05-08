@@ -13,16 +13,17 @@
     flex-basis: 95%;
     border: 2px solid $green;
     outline: none;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
+    font-size: .7rem;
+    padding: .5rem 1rem;
     margin: .2rem;
     font-family: "Roboto", sans-serif;
   }
   .todo-form__button {
     flex-basis: 5%;
     border: none;
-    margin-left: 0.2rem;
+    margin-left: .2rem;
     padding: .2rem;
+    background: transparent;
   }
 }
 

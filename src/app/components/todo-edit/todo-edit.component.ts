@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ITodo } from './../../core/interfaces/todo';
 import { MaterialModule } from './../../core/material/material.module';
 
@@ -7,25 +7,24 @@ import { MaterialModule } from './../../core/material/material.module';
   templateUrl: './todo-edit.component.html',
   styleUrls: ['./todo-edit.component.scss']
 })
-export class TodoEditComponent implements OnInit {
-  edited = true;
-  updatedTodo: ITodo;
+export class TodoEditComponent {
   updatedTitle = '';
 
   @Input() set todo(todo: ITodo) {
     this.updatedTitle = todo.title;
-    this.updatedTodo = todo;
   }
 
-  ngOnInit(): void {
-  }
+  @Output() save = new EventEmitter<{ title: string }>();
+  @Output() cancel = new EventEmitter();
+
 
   saveTodoTitle() {
-    this.updatedTodo.title = this.updatedTitle;
-    this.edited = false;
+    this.save.emit({
+      title: this.updatedTitle
+    });
   }
 
   cancelTodo() {
-    this.edited = false;
+    this.cancel.emit();
   }
 }

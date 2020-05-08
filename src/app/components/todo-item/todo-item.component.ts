@@ -26,7 +26,19 @@ export class TodoItemComponent implements OnInit {
   }
 
   editTodo() {
-    console.log("dbclick todo: " + this.todo.id)
     this.edited = this.todo.completed === false;
+  }
+
+  updateEvent({ title }: { title: string }) {
+    const editedItem = {
+      ...this.todo,
+      title
+    };
+    this.edited = false;
+    this.todo.title = editedItem.title;
+  }
+
+  cancelEdit() {
+    this.edited = false;
   }
 }

@@ -15,6 +15,7 @@ import { TodoActionComponent } from './components/todo-action/todo-action.compon
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
+import { TodoLoadingComponent } from './components/todo-loading/todo-loading.component';
 
 // Services
 import { TodosService } from './core/services/todos.service';
@@ -32,7 +33,8 @@ import { TodosFilterPipe } from './core/pipes/todos-filter.pipe';
     TodosFilterPipe,
     TodoAppComponent,
     TodoActionComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TodoLoadingComponent
   ],
   imports: [
     BrowserModule,

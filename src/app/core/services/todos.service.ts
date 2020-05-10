@@ -18,11 +18,6 @@ export class TodosService {
       .pipe(tap(todos => (this.todos = todos)));
   }
 
-  getTodo(id: number) {
-    const idx = this.todos.findIndex(t => t.id === id);
-    return this.todos[idx];
-  }
-
   completeTodo(id: number) {
     const idx = this.todos.findIndex(t => t.id === id);
     this.todos[idx].completed = !this.todos[idx].completed;
@@ -77,7 +72,7 @@ export class TodosService {
   }
 
   getNextTodoId() {
-    return this.todos.length + 1;
+    return new Date().valueOf();
   }
 
 }

@@ -5,10 +5,10 @@
     </div>
     <div *ngIf="!loading">
 
-        <ul class="todo-list__list" *ngIf="todosService.todos.length; else noTodos">
+        <ul class="todo-list__list" *ngIf="todos.length; else noTodos">
             <input class="todo-list__filter" type="search" type="name" placeholder="Filter todo by title..."
                 [(ngModel)]="search">
-            <li class="todo-list__item" *ngFor="let todo of todosService.todos | todosFilter:search">
+            <li class="todo-list__item" *ngFor="let todo of todos | todosFilter:search">
                 <app-todo-item [todo]="todo"></app-todo-item>
             </li>
         </ul>

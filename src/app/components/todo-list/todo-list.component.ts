@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { TodosService } from './../../core/services/todos.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ITodo } from './../../core/interfaces/todo';
 
 @Component({
@@ -7,19 +6,19 @@ import { ITodo } from './../../core/interfaces/todo';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss']
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent {
   @Input() search: string;
-  todos: ITodo[];
-  public loading: boolean;
+  @Input() todos: ITodo[];
+  @Output() completeEvent = new EventEmitter<ITodo>();
+  @Output() removeEvent = new EventEmitter<ITodo>();
 
-  constructor(public todosService: TodosService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.loading = true;
+  completeTodo(todo: ITodo) {
+    this.completeEvent.emit(todo);
   }
 
-  loadTodos() {
-    this.loading = false;
-    this.todos = this.todosService.todos;
+  removeTodo(todo: ITodo) {
+    this.removeEvent.emit(todo);
   }
 }

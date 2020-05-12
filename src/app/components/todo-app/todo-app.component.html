@@ -2,5 +2,11 @@
     <h1 class="todo-app__title title">Welcome to Todo App</h1>
     <app-todo-action></app-todo-action>
     <app-todo-form></app-todo-form>
-    <app-todo-list></app-todo-list>
+    <div *ngIf="loading">
+        <app-todo-loading (load)="loadTodos()"></app-todo-loading>
+    </div>
+    <div *ngIf="!loading">
+        <app-todo-list [todos]="todosArray" (removeEvent)="removeTodo($event)" (completeEvent)="completeTodo($event)">
+        </app-todo-list>
+    </div>
 </div>

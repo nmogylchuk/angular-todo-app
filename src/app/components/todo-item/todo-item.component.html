@@ -2,10 +2,10 @@
     <div class="todo-item__item">
         <div class="todo-item__subitem">
             <input class="todo-item__checkbox" [id]="todo.id" type="checkbox" [class.checked]="todo.completed"
-                (change)="completeTodo(todo.id)" [disabled]="edited">
+                (change)="completeTodo()" [disabled]="edited">
 
             <label class="todo-item__checkmark" [for]="todo.id" [class.checked]="todo.completed"
-                (change)="completeTodo(todo.id)"></label>
+                (change)="completeTodo()"></label>
         </div>
 
         <div class="todo-item__subitem" [class.completed]="todo.completed" (click)="editTodo()" *ngIf="!edited">
@@ -18,7 +18,7 @@
         </div>
  
         <small class="todo-item__date">{{ todo.date | date:'medium' }}</small>
-        <button class="todo-item__button button-remove button" (click)="removeTodo(todo.id)">
+        <button class="todo-item__button button-remove button" (click)="removeTodo()">
             <mat-icon>delete</mat-icon>
         </button>
         

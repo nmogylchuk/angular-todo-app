@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { TodosService } from './../../core/services/todos.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ITodo } from './../../core/interfaces/todo';
 
 @Component({
@@ -11,18 +10,20 @@ export class TodoItemComponent implements OnInit {
   edited = false;
 
   @Input() todo: ITodo;
+  @Output() completeEvent = new EventEmitter<ITodo>();
+  @Output() removeEvent = new EventEmitter<ITodo>();
 
-  constructor(public todosService: TodosService) {}
+  constructor() {}
 
   ngOnInit() {
   }
 
-  completeTodo(id: number) {
-    this.todosService.completeTodo(id);
+  completeTodo() {
+    this.completeEvent.emit(this.todo);
   }
 
-  removeTodo(id: number) {
-    this.todosService.removeTodo(id);
+  removeTodo() {
+    this.removeEvent.emit(this.todo);
   }
 
   editTodo() {

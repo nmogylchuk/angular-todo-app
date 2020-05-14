@@ -1,0 +1,26 @@
+<div class="todo-item">
+    <div class="todo-item__item">
+        <div class="todo-item__subitem">
+            <input class="todo-item__checkbox" [id]="todo.id" type="checkbox" [class.checked]="todo.completed"
+                (change)="completeTodo()" [disabled]="edited">
+
+            <label class="todo-item__checkmark" [for]="todo.id" [class.checked]="todo.completed"
+                (change)="completeTodo()"></label>
+        </div>
+
+        <div class="todo-item__subitem" [class.completed]="todo.completed" (click)="editTodo()" *ngIf="!edited">
+            <strong class="todo-item__number">{{ todo.id }}</strong>
+            <div class="todo-item__name" [class.todo-item__done]="todo.completed"> {{ todo.title }} </div>
+        </div>
+
+        <div *ngIf="edited">
+            <app-todo-edit [todo]="todo" (save)="updateEvent($event)" (cancel)="cancelEdit()"></app-todo-edit>
+        </div>
+ 
+        <small class="todo-item__date">{{ todo.date | date:'medium' }}</small>
+        <button class="todo-item__button button-remove button" (click)="removeTodo()">
+            <mat-icon>delete</mat-icon>
+        </button>
+        
+    </div>
+</div>
